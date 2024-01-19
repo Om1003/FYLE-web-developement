@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Github Repositories</title>
+</head>
+
+<body class="light">
+    <div class="dark-mode-toggle">
+        <button onclick="toggleDarkMode()"><i class="fas fa-moon"></i></button>
+    </div>
+    <div class="container">
+        <div class="intro-section">
+            <div class="intro">
+                <h1>Welcome to Find-Repository</h1>
+                <p>This is a GitHub Repositories Finder! <br>
+                    Enter a GitHub username to discover their repositories.
+                    Click the "Fetch Repositories" button to get started.
+                </p>
+            </div>
+        </div>
+        <label for="usernameInput">Enter Github Username:</label><br>
+        <div class="input-group">
+            <input type="text" id="usernameInput" placeholder="Enter username" class="form-control">
+            <div class="input-group-append">
+                <button onclick="fetchGithubRepositories()" class="btn btn-primary mr-4"><i class="fas fa-search"></i>Fetch Repositories</button>
+            </div>
+        </div>
+        <div id="userProfileContainer"></div>
+        <div id="repositoriesContainer"></div>
+        <div id="paginationContainer"></div>
+        <div id="loader"></div>
+    </div>
+    <footer class="mt-5">
+        <hr>
+        <p class="text-center">Developed by Om Pakhare &copy; 2024</p>
+    </footer>
+    <div class="modal" id="repoModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="repoName"></h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Description:</strong> <span id="repoDescription"></span></p>
+                    <p><strong>Topics:</strong> <span id="repoTopics"></span></p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p><strong>Owner:</strong> <span id="repoOwner"></span></p>
+                            <p><strong>Repository URL:</strong> <a href="#" id="repoLink" target="_blank"> Visit </a>
+                            </p>
+                            <p><strong>Created:</strong> <span id="repoCreated"></span></p>
+                            <p><strong>Last Updated:</strong> <span id="repoUpdated"></span></p>
+                            <p><strong>Language:</strong> <span id="repoLanguage"></span></p>
+                            <p><strong>License:</strong> <span id="repoLicense"></span></p>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Stars:</strong> <span id="repoStars"></span></p>
+                            <p><strong>Forks:</strong> <span id="repoForks"></span></p>
+                            <p><strong>Watchers:</strong> <span id="repoWatchers"></span></p>
+                            <p><strong>Open Issues:</strong> <span id="repoOpenIssues"></span></p>
+                            <p><strong>Open PRs:</strong> <span id="repoOpenPRs"></span></p>
+                            <p><strong>Size:</strong> <span id="repoSize"></span> KB</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
